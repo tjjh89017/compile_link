@@ -1,7 +1,7 @@
 PROG = hello
 CC = gcc
 CPP = gcc -E
-CC1 = gcc -S
+CC1 = gcc -S -masm=intel
 LD = gcc
 AS = as
 DEBUG = 

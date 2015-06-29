@@ -33,3 +33,7 @@
 
 # Mac
 .DS_Store
+
+# other
+*.i
+*.s

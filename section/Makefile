@@ -1,4 +1,4 @@
-PROG = hello
+PROG = section
 CC = gcc
 CPP = gcc -E
 CC1 = gcc -S
@@ -20,9 +20,9 @@ CC1FLAGS += -mllvm --x86-asm-syntax=intel
 DEBUG = lldb
 OBJDUMP = gobjdump
 else ifeq ($(shell uname -s), Linux)
+CC1FLAGS += -masm=intel
 DEBUG = gdb
 OBJDUMP = objdump
-CC1FLAGS += -masm=intel
 endif
 
 ifeq ($(M), 32)
@@ -30,7 +30,7 @@ CFLAGS += -m32
 LDFLAGS += -m32
 endif
 
-OBJS = hello.o
+OBJS = section.o
 PRE_CODE = $(patsubst %.o, %.i, $(OBJS))
 ASM_CODE = $(patsubst %.o, %.s, $(OBJS))
 

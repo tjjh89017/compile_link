@@ -9,14 +9,15 @@ DEBUG =
 INC = 
 
 CFLAGS = -O0 $(INC)
+CC1FLAGS = 
 
 LDFLAGS = 
 LIBS = 
 
 ifeq ($(shell uname -s), Darwin)
-CC1FLAGS = -mllvm --x86-asm-syntax=intel
+CC1FLAGS += -mllvm --x86-asm-syntax=intel
 else ifeq ($(shell uname -s), Linux)
-CC1FLAGS = -masm=intel
+CC1FLAGS += -masm=intel
 endif
 
 ifeq ($(M), 32)

@@ -33,8 +33,9 @@ endif
 OBJS = hello.o
 PRE_CODE = $(patsubst %.o, %.i, $(OBJS))
 ASM_CODE = $(patsubst %.o, %.s, $(OBJS))
+DUMP = $(patsubst %.o, %.o.dump, $(OBJS))
 
-.PHONY: all clean preprocess assembly object
+.PHONY: all clean preprocess assembly object objdump
 
 .c.o:
 	$(CC) $(CFLAGS) -c $*.c
@@ -44,6 +45,9 @@ ASM_CODE = $(patsubst %.o, %.s, $(OBJS))
 
 %.s: %.c
 	$(CC1) $(CFLAGS) $(CC1FLAGS) $*.c
+
+%.o.dump: %.o
+	$(OBJDUMP) -d -M intel $*.o > $*.o.dump
 
 all: $(PROG)
 
@@ -55,6 +59,8 @@ preprocess: $(PRE_CODE)
 assembly: $(ASM_CODE)
 
 object: $(OBJS)
+
+objdump: $(DUMP)
 
 clean:
 	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(PROG)

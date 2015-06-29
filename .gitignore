@@ -40,3 +40,4 @@ link
 # other
 *.i
 *.s
+*.dump

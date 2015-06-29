@@ -1,4 +1,4 @@
-PROG = section
+PROG = main
 CC = gcc
 CPP = gcc -E
 CC1 = gcc -S

@@ -9,7 +9,9 @@ DEBUG =
 INC = 
 
 CFLAGS = -O0 $(INC)
-#CFLAGS += -m32
+
+LDFLAGS = 
+LIBS = 
 
 ifeq ($(shell uname -s), Darwin)
 CC1FLAGS = -mllvm --x86-asm-syntax=intel
@@ -17,9 +19,10 @@ else ifeq ($(shell uname -s), Linux)
 CC1FLAGS = -masm=intel
 endif
 
-LDFLAGS = 
-LIBS = 
-#LDFLAGS = -m32
+ifeq ($(M), 32)
+CFLAGS += -m32
+LDFLAGS += -m32
+endif
 
 OBJS = hello.o
 PRE_CODE = $(patsubst %.o, %.i, $(OBJS))

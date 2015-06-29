@@ -29,6 +29,7 @@
 *.hex
 hello
 section
+link
 
 # Debug files
 *.dSYM/

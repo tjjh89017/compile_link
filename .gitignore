@@ -28,8 +28,7 @@
 *.x86_64
 *.hex
 hello
-section
-link
+main
 
 # Debug files
 *.dSYM/

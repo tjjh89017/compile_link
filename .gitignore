@@ -28,6 +28,8 @@
 *.x86_64
 *.hex
 hello
+section
+link
 
 # Debug files
 *.dSYM/

@@ -1,7 +1,7 @@
 PROG = hello
 CC = gcc
 CPP = gcc -E
-CC1 = gcc -S -masm=intel
+CC1 = gcc -S
 LD = gcc
 AS = as
 DEBUG = 
@@ -10,6 +10,12 @@ INC =
 
 CFLAGS = -O0 $(INC)
 #CFLAGS += -m32
+
+ifeq ($(shell uname -s), Darwin)
+CC1FLAGS = -mllvm --x86-asm-syntax=intel
+else ifeq ($(shell uname -s), Linux)
+CC1FLAGS = -masm=intel
+endif
 
 LDFLAGS = 
 LIBS = 
@@ -28,7 +34,7 @@ ASM_CODE = $(patsubst %.o, %.s, $(OBJS))
 	$(CPP) $(CFLAGS) $*.c -o $*.i
 
 %.s: %.c
-	$(CC1) $(CFLAGS) $*.c
+	$(CC1) $(CFLAGS) $(CC1FLAGS) $*.c
 
 all: $(PROG)
 

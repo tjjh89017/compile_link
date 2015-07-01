@@ -9,4 +9,6 @@ int main(){
 	printf("This is main!\n");
 	bar();
 	foo();
+
+	return 0;
 }

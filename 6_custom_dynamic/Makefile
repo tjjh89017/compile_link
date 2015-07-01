@@ -82,7 +82,7 @@ build: $(PROG)
 lib: $(LIBRARY)
 
 run: $(LIBRARY) $(PROG)
-	LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./$(PROG)
+	LD_LIBRARY_PATH=.:$$LD_LIBRARY_PATH ./$(PROG)
 
 clean:
 	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(DUMP) $(LIB_OBJS) $(LIBRARY) $(PROG)

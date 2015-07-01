@@ -37,7 +37,8 @@ PRE_CODE = $(patsubst %.o, %.i, $(OBJS))
 ASM_CODE = $(patsubst %.o, %.s, $(OBJS))
 DUMP = $(patsubst %.o, %.o.dump, $(OBJS))
 
-.PHONY: all clean preprocess assembly object objdump
+.PHONY: all clean preprocess assembly object objdump build
+.DEFAULT_GOAL := all
 
 .c.o:
 	$(CC) $(CFLAGS) -c $*.c
@@ -51,10 +52,10 @@ DUMP = $(patsubst %.o, %.o.dump, $(OBJS))
 %.o.dump: %.o
 	$(OBJDUMP) -d -M intel $*.o > $*.o.dump
 
-all: $(PROG)
-
 $(PROG): $(OBJS)
 	$(LD) $(LDFLAGS) $(LIBS) $(OBJS) -o $(PROG)
+
+all: preprocess assembly object objdump build
 
 preprocess: $(PRE_CODE)
 
@@ -63,6 +64,8 @@ assembly: $(ASM_CODE)
 object: $(OBJS)
 
 objdump: $(DUMP)
+
+build: $(PROG)
 
 clean:
 	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(DUMP) $(PROG)

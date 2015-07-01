@@ -1,5 +1,9 @@
 #Compile & Link Tutorial
 
+##Slide
+
+[slide.pdf](slide.pdf)
+
 ##General Operation
 
 Preprocess

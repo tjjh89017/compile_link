@@ -14,7 +14,7 @@ CFLAGS = -O0 $(INC)
 CC1FLAGS = 
 
 LDFLAGS = 
-LIBS = -ltest -L./
+LIBS = 
 
 LIB_LDFLAGS = -fPIC -shared
 
@@ -82,6 +82,9 @@ lib: $(LIBRARY)
 
 run: $(LIBRARY) $(PROG)
 	LD_PRELOAD=./$(LIBRARY) ./$(PROG)
+
+normal_run: $(LIBRARY) $(PROG)
+	./$(PROG)
 
 clean:
 	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(DUMP) $(LIB_OBJS) $(LIBRARY) $(PROG)

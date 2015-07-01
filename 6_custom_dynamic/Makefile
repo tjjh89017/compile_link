@@ -63,6 +63,10 @@ $(PROG): $(OBJS) $(LIBRARY)
 $(LIBRARY): $(LIB_OBJS)
 	$(LD) $(LIB_LDFLAGS) -o $(LIBRARY) $(LIB_OBJS)
 
+$(LIB_OBJS):
+	$(CC) -fPIC $(CFLAGS) -c $*.c
+
+
 all: preprocess assembly object objdump lib build
 
 preprocess: $(PRE_CODE)

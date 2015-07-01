@@ -40,3 +40,4 @@ main
 *.i
 *.s
 *.dump
+*.swp

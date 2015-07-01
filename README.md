@@ -4,6 +4,14 @@
 
 [slide.pdf](slide.pdf)
 
+##Refernece
+
+[How A Compiler Works: GNU Toolchain](http://www.slideshare.net/jserv/how-a-compiler-works-gnu-toolchain)
+
+[The Internals of "Hello World" Program](http://www.slideshare.net/jserv/helloworld-internals)
+
+[Internal and External Linkage in C](https://github.com/u1240976/mess_note/blob/master/talk/internal_and_external_linkage_in_C.rst)
+
 ##General Operation
 
 Preprocess
@@ -89,4 +97,3 @@ Execute with preload shared library
 ```
 make run
 ```
-

@@ -66,4 +66,4 @@ objdump: $(DUMP)
 build: $(PROG)
 
 clean:
-	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(PROG)
+	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(DUMP) $(PROG)

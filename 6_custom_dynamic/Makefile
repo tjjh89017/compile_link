@@ -42,7 +42,7 @@ PRE_CODE = $(patsubst %.o, %.i, $(OBJS) $(LIB_OBJS))
 ASM_CODE = $(patsubst %.o, %.s, $(OBJS) $(LIB_OBJS))
 DUMP = $(patsubst %.o, %.o.dump, $(OBJS) $(LIB_OBJS))
 
-.PHONY: all clean preprocess assembly object objdump build lib
+.PHONY: all clean preprocess assembly object objdump build lib run
 .DEFAULT_GOAL := all
 
 .c.o:
@@ -80,6 +80,9 @@ objdump: $(DUMP)
 build: $(PROG)
 
 lib: $(LIBRARY)
+
+run: $(LIBRARY) $(PROG)
+	LD_LIBRARY_PATH=.:$LD_LIBRARY_PATH ./$(PROG)
 
 clean:
 	-rm -rf $(PRE_CODE) $(ASM_CODE) $(OBJS) $(DUMP) $(LIB_OBJS) $(LIBRARY) $(PROG)

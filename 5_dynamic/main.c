@@ -20,7 +20,7 @@ int main(){
 	int i = 0;
 	for(i = 0; i < MAX_THREADS; i++){
 		pthread_create(&pid[i], NULL, work, (void*)i);
-		usleep(10);
+		usleep(5);
 	}
 
 	for(i = 0; i < MAX_THREADS; i++)

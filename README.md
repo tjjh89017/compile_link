@@ -2,7 +2,7 @@
 
 ##Slide
 
-[slide.pdf](slide.pdf)
+[slides.pdf](slides.pdf)
 
 ##Refernece
 

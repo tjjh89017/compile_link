@@ -9,6 +9,7 @@ void *work(void *arg){
 	int i = 0;
 	for(i = 0; i < 5; i++){
 		printf("Thread %d works\n", (int)arg);
+		usleep(10);
 	}
 
 	return NULL;
@@ -18,10 +19,8 @@ int main(){
 
 	pthread_t pid[MAX_THREADS];
 	int i = 0;
-	for(i = 0; i < MAX_THREADS; i++){
+	for(i = 0; i < MAX_THREADS; i++)
 		pthread_create(&pid[i], NULL, work, (void*)i);
-		usleep(5);
-	}
 
 	for(i = 0; i < MAX_THREADS; i++)
 		pthread_join(pid[i], NULL);

@@ -3,4 +3,9 @@
 
 void foo();
 
+/*
+ * Unreachable
+ */
+void foo2();
+
 #endif

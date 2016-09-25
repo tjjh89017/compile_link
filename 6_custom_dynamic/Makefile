@@ -58,7 +58,7 @@ DUMP = $(patsubst %.o, %.o.dump, $(OBJS) $(LIB_OBJS))
 	$(OBJDUMP) -d -M intel $*.o > $*.o.dump
 
 $(PROG): $(OBJS) $(LIBRARY)
-	$(LD) $(LDFLAGS) $(LIBS) $(OBJS) -o $(PROG)
+	$(LD) $(OBJS) -o $(PROG) $(LDFLAGS) $(LIBS)
 
 $(LIBRARY): $(LIB_OBJS)
 	$(LD) $(LIB_LDFLAGS) -o $(LIBRARY) $(LIB_OBJS)

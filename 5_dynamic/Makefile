@@ -51,7 +51,7 @@ DUMP = $(patsubst %.o, %.o.dump, $(OBJS))
 	$(OBJDUMP) -d -M intel $*.o > $*.o.dump
 
 $(PROG): $(OBJS)
-	$(LD) $(LDFLAGS) $(LIBS) $(OBJS) -o $(PROG)
+	$(LD) $(OBJS) -o $(PROG) $(LDFLAGS) $(LIBS)
 
 all: preprocess assembly object objdump build
 
